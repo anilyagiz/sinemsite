@@ -9,15 +9,16 @@ function App() {
       <main className="content">
         <section className="hero">
           <ColorBends
-            colors={["#F4ED15"]}
+            className="hero-bends"
+            colors={["#F4ED15", "#FF6B9D", "#C724B1", "#4CC9F0", "#FFD60A"]}
             rotation={30}
             speed={0.3}
-            scale={1.2}
-            frequency={1.4}
-            warpStrength={1.2}
+            scale={0.8}
+            frequency={1.6}
+            warpStrength={1.8}
             mouseInfluence={0.8}
             parallax={0.6}
-            noise={0.08}
+            noise={0.05}
             transparent
           />
           <CurvedLoop
