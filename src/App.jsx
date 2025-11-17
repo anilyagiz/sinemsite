@@ -1,5 +1,6 @@
 import CurvedLoop from './components/CurvedLoop';
 import FallingText from './components/FallingText';
+import GradientBlinds from './components/GradientBlinds';
 import './App.css';
 
 function App() {
@@ -7,7 +8,22 @@ function App() {
     <div className="app">
       <main className="content">
         <section className="hero">
-          <div className="hero-bends"></div>
+          <div className="hero-bends">
+            <GradientBlinds
+              gradientColors={['#FFD700', '#FFEA00', '#FFC700', '#FFE34D']}
+              angle={0}
+              noise={0.15}
+              blindCount={20}
+              blindMinWidth={50}
+              spotlightRadius={0.6}
+              spotlightSoftness={1.2}
+              spotlightOpacity={0.8}
+              mouseDampening={0.12}
+              distortAmount={0}
+              shineDirection="left"
+              mixBlendMode="screen"
+            />
+          </div>
           <CurvedLoop
             marqueeText="Sinem ✦ Seninle konuşmaya bayılıyorum ✦"
             speed={2.5}
