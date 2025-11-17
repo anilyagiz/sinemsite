@@ -9,7 +9,7 @@ function App() {
       <main className="content">
         <section className="hero">
           <ColorBends
-         "   colors={[ "#F4ED15"]}"
+            colors={["#F4ED15"]}
             rotation={30}
             speed={0.3}
             scale={1.2}
@@ -42,8 +42,12 @@ function App() {
     fontSize="1.75rem" 
     mouseConstraintStiffness={0.9} 
   /> 
-  <p className="hint">(Üzerine gelince kelimeler düşecek, aynen ben gibi.)</p> 
+  <p className="hint">(Üzerine gelince kelimeler düşecek, aynen ben gibi.)</p>
 </div>
-
+        </section>
+      </main>
+    </div>
+  );
+}
 
 export default App;

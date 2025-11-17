@@ -34,8 +34,8 @@ const FallingText = ({
 
   useEffect(() => {
     if (trigger === 'auto') {
-      setEffectStarted(true);
-      return;
+      const timer = setTimeout(() => setEffectStarted(true), 0);
+      return () => clearTimeout(timer);
     }
     if (trigger === 'scroll' && containerRef.current) {
       const observer = new IntersectionObserver(
@@ -57,6 +57,7 @@ const FallingText = ({
 
     const { Engine, Render, World, Bodies, Runner, Mouse, MouseConstraint } = Matter;
 
+    const canvasContainer = canvasContainerRef.current;
     const containerRect = containerRef.current.getBoundingClientRect();
     const width = containerRect.width;
     const height = containerRect.height;
@@ -69,7 +70,7 @@ const FallingText = ({
     engine.world.gravity.y = gravity;
 
     const render = Render.create({
-      element: canvasContainerRef.current,
+      element: canvasContainer,
       engine,
       options: {
         width,
@@ -155,8 +156,8 @@ const FallingText = ({
     return () => {
       Render.stop(render);
       Runner.stop(runner);
-      if (render.canvas && canvasContainerRef.current?.contains(render.canvas)) {
-        canvasContainerRef.current.removeChild(render.canvas);
+      if (render.canvas && canvasContainer?.contains(render.canvas)) {
+        canvasContainer.removeChild(render.canvas);
       }
       World.clear(engine.world, false);
       Engine.clear(engine);
