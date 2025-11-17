@@ -40,10 +40,32 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  opacity: 1;
-  filter: blur(0px) saturate(1.8);
-  mix-blend-mode: screen;
-  z-index: 0;
+  background: linear-gradient(
+    45deg,
+    #FFD700 0%,
+    #FFEA00 25%,
+    #FFC700 50%,
+    #FFE34D 75%,
+    #FFD700 100%
+  );
+  background-size: 400% 400%;
+  animation: gradientWave 15s ease infinite;
+  opacity: 0.6;
+  z-index: 1;
+  pointer-events: none;
+  filter: blur(80px) saturate(1.5);
+}
+
+@keyframes gradientWave {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 .hero-loop {
